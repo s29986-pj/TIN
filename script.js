@@ -109,7 +109,7 @@ class Player {
         if (playerTop >= platformBottom && playerTop + this.velocity.y <= platformBottom && 
             playerRight > platformLeft && playerLeft < platformRight) {
             this.velocity.y = 0;
-            this.position.y = platformBottom; // Gracz ląduje na platformie
+            this.position.y = platformBottom;
             this.isInAir = false;
         }
     }
@@ -232,13 +232,8 @@ class ParallaxLayer {
         this.images.forEach(image => {
             const imageWidth = image.width;
             const imageHeight = image.height;
-
     
             let startX = parallaxX % imageWidth;
-    
-            // if (startX > 0) {
-            //     startX -= imageWidth;
-            // }
     
             for (let x = startX; x < worldWidth; x += imageWidth - 3) {
                 c.drawImage(image, x, canvas.height - imageHeight, imageWidth, imageHeight);
